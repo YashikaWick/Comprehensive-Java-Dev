@@ -1,0 +1,25 @@
+/*
+Input two numbers and check whether the first
+number is greater than the second number. If so add
+the two numbers otherwise display the two numbers.
+*/
+
+class Example {
+
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Input num 1 : ");
+        int num1 = input.nextInt();
+
+        System.out.println("Input num 1 : ");
+        int num2 = input.nextInt();
+
+        if (num1 > num2) {
+            int total = num1 + num2;
+        } else {
+            System.out.println(num1 + " " + num2);
+        }
+
+    }
+}
