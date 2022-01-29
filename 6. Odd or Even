@@ -1,0 +1,19 @@
+/*
+input an integer number from
+the keyboard and print whether the number is odd or even
+*/
+
+import java.util.*;
+
+class Example {
+
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Input number  :  ");
+        int num = input.nextInt();
+        
+        System.out.println(num%2==0 ? "Even" : "Odd");
+        
+    }
+}
+
