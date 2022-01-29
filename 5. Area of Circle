@@ -1,0 +1,17 @@
+/*
+find & print the area of a
+circle when user input the radius.
+*/
+
+import java.util.*;
+
+class Example {
+
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Input radius :  ");
+        double r = input.nextDouble();
+        double area = (22 * r * r)/7;
+        System.out.println(area);       
+    }
+}
