@@ -1,0 +1,26 @@
+/*
+Enter marks Obtained by a student for Chemistry,
+Physics and Combined maths. Calculate the total and
+average. If the average is greater than 75 then display
+“Pass” otherwise “Fail”.
+*/
+
+class Example{
+public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Input Chemistry marks : ");
+        double chem = input.nextDouble();
+        System.out.print("Input Physics marks : ");
+        double phy = input.nextDouble();
+        System.out.print("Input Maths marks : ");
+        double math = input.nextDouble();
+
+        double total = 0, avg = 0;
+        total = chem + phy + math;
+        avg = total / 3;
+        String status = avg >= 75 ? "Pass" : "Fail";
+
+        System.out.println(status);
+
+    }
+ }
