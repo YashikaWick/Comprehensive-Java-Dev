@@ -1,0 +1,20 @@
+import java.util.*;
+class Example{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		
+		int total=0;
+		System.out.print("Input marks for student (press -1 to terminate  : ");
+		int marks=input.nextInt();
+		int count=0;
+		while(marks!=-1){
+			total+=marks;
+			System.out.print("Input marks for student (press -1 to terminate  : ");
+			marks=input.nextInt();
+			count++;
+		}
+		double avg=count==0 ? 0 : (double)total/count;
+		System.out.println("Total marks   : "+total);
+		System.out.println("Average marks : "+avg);
+	}
+}
