@@ -2,6 +2,7 @@
 find the absolute number of a given integer number
 */
 
+
 import java.util.*;
 class Example{
 	public static void main(String args[]){	
@@ -11,3 +12,9 @@ class Example{
 		System.out.println("Absolute number of "+num+" is : "+ (num<0 ? -num : num));
 	}
 }
+
+-------------------
+
+
+
+
