@@ -1,0 +1,17 @@
+import java.util.*; 
+class Example{
+	public static boolean studentIsPass(double avg){
+		return avg>=50;
+	}
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input average marks : ");
+		double avg=input.nextDouble();
+		
+		if(studentIsPass(avg)){
+			System.out.println("pass");
+		}else{
+			System.out.println("Fail");
+		}
+	}
+}
