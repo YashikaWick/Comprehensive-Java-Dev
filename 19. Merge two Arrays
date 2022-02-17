@@ -1,0 +1,23 @@
+import java.util.*; 
+class Example{
+	public static int[] mergeTwoArrays(int[] a, int[] b){
+		int[] tempArray=new int[a.length+b.length];
+		for(int i=0; i<a.length; i++){
+			tempArray[i]=a[i];
+		}
+		for(int i=0; i<b.length; i++){
+			tempArray[a.length+i]=b[i];
+		}
+		return tempArray;
+	}
+	public static void main(String args[]){
+		int[] ar={34,65,76,78,12,41,61,81,29,92};
+		int[] br={10,20,30,40};
+		
+		int[] cr=mergeTwoArrays(ar,br);
+		
+		System.out.println(Arrays.toString(ar)); 	//[34,65,76,78,12,41,61,81,29,92]
+		System.out.println(Arrays.toString(br));	//[10,2,30,40]
+		System.out.println(Arrays.toString(cr)); 	//[34,65,76,78,12,41,61,81,29,92,10,20,30,40]
+	}
+}
