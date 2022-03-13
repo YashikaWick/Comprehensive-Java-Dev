@@ -1,0 +1,25 @@
+class MyClass{
+	int a;
+	public void myMethod(){
+		System.out.println(this);
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		System.out.println(c1);
+		c1.myMethod();
+		
+		MyClass c2=new MyClass();
+		System.out.println(c2);
+		c2.myMethod();
+	} 
+}
+
+
+/*
+MyClass@15db9742
+MyClass@15db9742
+MyClass@6d06d69c
+MyClass@6d06d69c
+*/
