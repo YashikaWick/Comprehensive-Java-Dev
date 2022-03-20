@@ -4,13 +4,19 @@ class Calculator extends JFrame{
 	
 	private JButton[] buttonsArray;
 	private String[] buttonNamesArray;
+	private JTextField textField; 
 	
 	Calculator(){
 		setSize(300,300);
 		setTitle("Calculator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		textField=new JTextField(5);
+		textField.setFont(new Font("",1,30));
+		add("North",textField);
 		
-		setLayout(new GridLayout(4,4,2,2));//rows,columns,space in beween col and rows
+		JPanel buttonPanel=new JPanel();
+		buttonPanel.setLayout(new GridLayout(4,4,2,2));
 		
 		buttonsArray=new JButton[16];
 		buttonNamesArray=new String[]{"7","8","9","*","4","5","6","/","1","2","3","+","0",".","=","-"};
@@ -18,8 +24,10 @@ class Calculator extends JFrame{
 		for (int i = 0; i < 16; i++){
 			buttonsArray[i]=new JButton(buttonNamesArray[i]);
 			buttonsArray[i].setFont(new Font("",1,25));
-			add(buttonsArray[i]);
+			buttonPanel.add(buttonsArray[i]);
 		}
+		add("Center",buttonPanel);
+
 	
 	}	
 }
@@ -29,6 +37,7 @@ class Demo{
 		c1.setVisible(true);
 	} 
 }
+
 
 /**import javax.swing.*;
 import java.awt.*;
