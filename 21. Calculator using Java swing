@@ -1,0 +1,101 @@
+import javax.swing.*;
+import java.awt.*;
+class Calculator extends JFrame{
+	
+	private JButton bt0;
+	private JButton bt1;
+	private JButton bt2;
+	private JButton bt3;
+	private JButton bt4;
+	private JButton bt5;
+	private JButton bt6;
+	private JButton bt7;
+	private JButton bt8;
+	private JButton bt9;
+	private JButton btMul;
+	private JButton btDiv;
+	private JButton btAdd;
+	private JButton btSub;
+	private JButton btDot;
+	private JButton btEqual;
+	
+	
+	Calculator(){
+		setSize(300,300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setLayout(new GridLayout(4,4,2,2));//rows,columns,space in beween col and rows
+		
+		bt1=new JButton("1");
+		bt1.setFont(new Font("",1,30));
+		add(bt1);
+		
+		bt2=new JButton("2");
+		bt2.setFont(new Font("",1,30));
+		add(bt2);
+		
+		bt3=new JButton("3");
+		bt3.setFont(new Font("",1,30));
+		add(bt3);
+		
+		bt4=new JButton("4");
+		bt4.setFont(new Font("",1,30));
+		add(bt4);
+		
+		bt5=new JButton("5");
+		bt5.setFont(new Font("",1,30));
+		add(bt5);
+		
+		bt6=new JButton("5");
+		bt6.setFont(new Font("",1,30));
+		add(bt6);
+		
+		bt7=new JButton("7");
+		bt7.setFont(new Font("",1,30));
+		add(bt7);
+		
+		bt8=new JButton("8");
+		bt8.setFont(new Font("",1,30));
+		add(bt8);
+		
+		bt9=new JButton("9");
+		bt9.setFont(new Font("",1,30));
+		add(bt9);
+		
+		bt0=new JButton("0");
+		bt0.setFont(new Font("",1,30));
+		add(bt0);
+		
+		btMul=new JButton("*");
+		btMul.setFont(new Font("",1,30));
+		add(btMul);
+		
+		btDiv=new JButton("/");
+		btDiv.setFont(new Font("",1,30));
+		add(btDiv);
+		
+		btAdd=new JButton("+");
+		btAdd.setFont(new Font("",1,30));
+		add(btAdd);
+		
+		btSub=new JButton("-");
+		btSub.setFont(new Font("",1,30));
+		add(btSub);
+		
+		btDot=new JButton(".");
+		btDot.setFont(new Font("",1,30));
+		add(btDot);
+		
+		btEqual=new JButton("=");
+		btEqual.setFont(new Font("",1,30));
+		add(btEqual);
+		
+	}	
+}
+class Demo{ 
+	public static void main(String args[]){ 
+		Calculator c1=new Calculator();
+		c1.setVisible(true);
+	} 
+}
