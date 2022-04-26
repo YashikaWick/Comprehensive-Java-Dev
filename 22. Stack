@@ -1,0 +1,98 @@
+import java.util.*;
+
+class Stack{
+	private int[] dataArray;
+	private int nextIndex;
+	
+	Stack(int size){
+		dataArray=new int[size];
+		nextIndex=0;
+	}
+	public void push(int data){
+		if(nextIndex >= dataArray.length){
+			System.out.println("Stack is full...");
+		}else{
+			dataArray[nextIndex++]=data;
+		}
+		
+	}
+	public void printStack(){
+		System.out.print("[");
+		for(int i=nextIndex-1; i>=0; i--){
+			System.out.print(dataArray[i]+", ");
+		}
+		System.out.println("\b\b]");
+	} 
+	public void pop(){
+		if(nextIndex<=0){
+			System.out.println("Stack is empty....");
+		}else{
+		nextIndex--; //or --nextIndex;
+		}	
+	}
+	
+	public int size(){
+		return nextIndex;
+	}
+	
+	public void clear(){
+		nextIndex = 0;
+	}
+	
+	public int peek(){
+		return nextIndex <= 0 ? -1: dataArray[nextIndex-1];
+	}
+	
+	public int poll(){
+		return nextIndex <= 0 ? -1: dataArray[--nextIndex];
+	}
+	
+	public int[] toArray(){
+		int[] tempDataArray = new  int[nextIndex];
+		for(int i = 0; i < tempDataArray.length; i++){
+			tempDataArray[i] = dataArray[nextIndex-(i+1)];
+		}
+		return tempDataArray;
+	}
+	
+}
+class DemoStack{
+	public static void main(String args[]){
+		Stack s1=new Stack(10);  //Line 1
+		s1.printStack(); //[empty]
+		System.out.println("Size of the stack : "+s1.size()); //0
+		s1.push(10);
+		s1.push(20);
+		s1.push(30);
+		s1.push(40);
+		s1.push(50);
+		s1.printStack(); //[50, 40, 30, 20, 10]
+		System.out.println("Size of the stack : "+s1.size()); //5
+		System.out.println("Top data:" + s1.peek());
+		System.out.println("After calling peek...");
+		s1.printStack(); //[50, 40, 30, 20, 10] 
+		
+		System.out.println("Top data:" + s1.poll());
+		System.out.println("After calling poll...");
+		s1.printStack(); //[40, 30, 20, 10] 
+		
+		int[] array = s1.toArray();
+		System.out.println(Arrays.toString(array));
+		
+		s1.push(60);
+		s1.push(70);
+		s1.push(80);
+		s1.push(90);
+		s1.push(100);
+		s1.printStack(); //[100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
+		System.out.println("Size of the stack : "+s1.size()); //10
+		
+		s1.push(111); //Prints-> Stack is full....
+		//----------------------------------------------------
+		s1.clear();
+		s1.printStack(); //[empty]
+		System.out.println("Size of the stack : "+s1.size()); //0
+		
+		s1.pop(); //Prints->Stack is empty...
+	} 
+}
