@@ -1,0 +1,98 @@
+class Queue{
+	private int[] dataArray;
+	private int nextIndex;
+	
+	public Queue(int size){
+		dataArray=new int[size];
+		nextIndex=0;
+	}
+	
+	public void enQueue(int data){
+		if(nextIndex >= dataArray.length){
+			incrementArray();
+		}else{
+			dataArray[nextIndex++] = data;
+		}
+	}
+	
+	public void printQueue(){
+		System.out.print("[");
+		for(int i=0; i<nextIndex; i++){
+			System.out.print(dataArray[i]+", ");
+		}
+		System.out.println(nextIndex<=0 ? "empty]":"\b\b]");
+	}
+	
+	public void deQueue(){
+		if(nextIndex<=0){
+			System.out.println("Queue is empty...");
+		}else{
+			for(int i=0; i<nextIndex-1; i++){
+				dataArray[i]=dataArray[i+1];
+			}			
+		}
+		nextIndex--;
+	}
+	
+	public int size(){
+		return nextIndex;
+	}
+	
+	public int capacity(){
+		return dataArray.length;
+	}
+	
+	public void incrementArray(){
+		int[] tempDataArray = new int[(dataArray.length+1)*2];
+		for(int i=0; i<dataArray.length; i++){
+			tempDataArray[i] = dataArray[i];
+		}
+		dataArray = tempDataArray;
+	}
+
+}
+
+class DemoQueue{
+	public static void main(String args[]){
+		Queue q1=new Queue(10);
+		q1.enQueue(10);
+		q1.enQueue(20);
+		q1.enQueue(30);
+		q1.enQueue(40);
+		q1.enQueue(50);
+		q1.printQueue(); //[10, 20, 30, 40, 50]
+		System.out.println("Size of the queue: "+q1.size());
+		System.out.println("Capacity of the queue : "+q1.capacity());
+
+		q1.deQueue(); //pop()
+		q1.printQueue(); //[20, 30, 40, 50]
+		System.out.println("Size of the queue: "+q1.size());
+		System.out.println("Capacity of the queue : "+q1.capacity());
+		
+		q1.deQueue(); 
+		q1.printQueue(); //[30, 40, 50]
+		System.out.println("Size of the queue: "+q1.size());
+		System.out.println("Capacity of the queue : "+q1.capacity());
+		
+		q1.enQueue(60);
+		q1.printQueue(); //[10, 20, 30, 40, 50, 60]
+		System.out.println("Size     of the queue : "+q1.size()); //6
+		System.out.println("Capacity of the queue : "+q1.capacity());//12
+		
+		q1.enQueue(70);
+		q1.enQueue(80);
+		q1.enQueue(90);
+		q1.enQueue(100);
+		q1.enQueue(110);
+		q1.enQueue(120);
+		q1.printQueue(); //[10, 20, 30, 40, 50, 60,70, 80, 90, 100, 110, 120]
+		System.out.println("Size     of the queue : "+q1.size()); //12
+		System.out.println("Capacity of the queue : "+q1.capacity());//12		
+		
+		q1.enQueue(130);
+		q1.printQueue(); //[10, 20, 30, 40, 50, 60,70, 80, 90, 100, 110, 120, 130]
+		System.out.println("Size     of the queue : "+q1.size()); //13
+		System.out.println("Capacity of the queue : "+q1.capacity());//26
+
+	}
+}
