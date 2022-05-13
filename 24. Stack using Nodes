@@ -1,0 +1,101 @@
+import java.util.*;
+
+class Node{
+	int data;
+	Node next;
+	
+	Node(int data){
+		this.data = data;
+	}
+}
+
+class Stack{
+	Node top;
+	
+	public void push(int data){
+		Node n1 = new Node(data);
+		n1.next = top;
+		top = n1;
+		
+	}
+	
+	public void printStack(){
+		Node temp = top;
+		System.out.print("[");
+		while(temp != null){
+			System.out.print(temp.data+ ",");
+			temp = temp.next;
+		}
+		System.out.print("\b]\n");
+	}
+	
+	public void pop(){
+		if(top != null){
+			top = top.next;
+		}
+	}
+	
+	public void peek(){
+		System.out.println(top != null ? "peek: "+top.data : "empty");
+	}
+	
+	public void clear(){
+		top = null;
+	}
+	
+	public int size(){
+		int count = 0;
+		Node temp = top;
+		while(temp != null){
+			count++;
+			temp = temp.next;
+		}
+		return count;
+	}
+	
+	public int poll(){
+		if(top == null){
+			return -1;
+		}else{
+			Node temp = top;
+			pop();
+			return temp.data;
+		}
+		
+	}
+	
+	public int[] toArray(){
+		Node temp = top;
+		int[] dataArray = new int[10];
+		int index = 0;
+		while(temp != null){
+			dataArray[index] = temp.data;
+			temp = temp.next;
+			index++;
+		}
+		return dataArray;
+	}
+}
+	
+class DemoStackNode{
+	public static void main(String args[]){
+		Stack s1 = new Stack();
+		s1.peek();
+		s1.push(10);
+		s1.peek();
+		s1.push(20);
+		s1.peek();
+		s1.push(30);
+		s1.push(40);
+		s1.push(50);
+		s1.printStack();
+		
+		int[] ar=s1.toArray();
+		System.out.println(Arrays.toString(ar)); //[50, 40, 30, 20, 10]
+		
+		
+
+
+	} 
+}
+
